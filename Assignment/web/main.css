@@ -3,7 +3,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to c
 Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/css.css to edit this template
 */
 /* 
-    Created on : Oct 12, 2022, 10:01:18 AM
+    Created on : Oct 12, 2022, 2:45:12 PM
     Author     : PC
 */
 
@@ -20,4 +20,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/css.css to edit this t
 .header {
   font-size: 36px;
   font-weight: bold;
+}
+#teacher {
+  text-align: center;
+  padding-left: 30px;
+}
+table {
+  width: 100%;
 }

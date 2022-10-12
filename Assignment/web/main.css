@@ -28,3 +28,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/css.css to edit this t
 table {
   width: 100%;
 }
+img {
+  width: 111px;
+  height: 146px;
+  border-width: 0px;
+}

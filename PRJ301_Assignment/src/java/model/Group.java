@@ -10,10 +10,11 @@ import java.util.ArrayList;
  *
  * @author PC
  */
-class Group {
-     private int id;
+public class Group {
+
+    private int id;
     private String name;
-    private Subject subject; 
+    private Subject subject;
     private Lecturer lecturer;
     private ArrayList<Session> sessions = new ArrayList<>();
     private ArrayList<Student> students = new ArrayList<>();
@@ -83,6 +84,5 @@ class Group {
     public void setYear(int year) {
         this.year = year;
     }
-    
-    
+
 }

@@ -10,7 +10,8 @@ import java.util.ArrayList;
  *
  * @author PC
  */
-class Lecturer {
+public class Lecturer {
+
     private int id;
     private String name;
     private ArrayList<Group> groups = new ArrayList<>();
@@ -47,5 +48,5 @@ class Lecturer {
     public void setSessions(ArrayList<Session> sessions) {
         this.sessions = sessions;
     }
-    
+
 }

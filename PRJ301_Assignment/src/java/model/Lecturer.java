@@ -13,17 +13,8 @@ import java.util.ArrayList;
 class Lecturer {
     private int id;
     private String name;
-    private ArrayList <Group> groups = new ArrayList<>();
-    private ArrayList <Seesion> seesions =  new ArrayList<>();
-
-    public Lecturer() {
-    }
-
-    
-    public Lecturer(int id, String name) {
-        this.id = id;
-        this.name = name;
-    }
+    private ArrayList<Group> groups = new ArrayList<>();
+    private ArrayList<Session> sessions = new ArrayList<>();
 
     public int getId() {
         return id;
@@ -49,12 +40,12 @@ class Lecturer {
         this.groups = groups;
     }
 
-    public ArrayList<Seesion> getSeesions() {
-        return seesions;
+    public ArrayList<Session> getSessions() {
+        return sessions;
     }
 
-    public void setSeesions(ArrayList<Seesion> seesions) {
-        this.seesions = seesions;
+    public void setSessions(ArrayList<Session> sessions) {
+        this.sessions = sessions;
     }
     
 }

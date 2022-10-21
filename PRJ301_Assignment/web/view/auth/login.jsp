@@ -1,12 +1,25 @@
-/*
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/css.css to edit this template
-*/
-/* 
-    Created on : Oct 9, 2022, 2:59:30 PM
+<%-- 
+    Document   : login
+    Created on : Oct 19, 2022, 4:34:05 PM
     Author     : PC
-*/
-.text-center {
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+    <head>
+       <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/css/bootstrap.min.css"
+      integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+      crossorigin="anonymous"
+    />
+    <style>
+        .text-center {
   text-align: center;
   padding-left: 30%;
 }
@@ -94,3 +107,36 @@ html {
   box-sizing: border-box;
 }
 
+    </style>
+    </head>
+    <body class="text-center">
+    <form class="form-signin" action="login" method="POST">
+      <img
+        src="https://upload.wikimedia.org/wikipedia/vi/1/1d/Logo_%C4%90%E1%BA%A1i_h%E1%BB%8Dc_FPT.png"
+      />
+      <h1 class="h3 mb-3 font-weight-normal">FPT University Academic Portal</h1>
+      <label for="inputEmail" class="sr-only">Username</label>
+      <input
+        type="username"    
+        class="form-control"
+        placeholder="Username"
+        required=""
+        autofocus=""
+        name="username"
+      />
+      <label for="inputPassword" class="sr-only">Password</label>
+      <input
+        type="password"   
+        class="form-control"
+        placeholder="Password"
+        required=""
+        name="password"
+      />
+     
+      <button class="btn btn-lg btn-primary btn-block" type="submit">
+        Sign in
+      </button>
+    </form>
+        
+  </body>
+</html>

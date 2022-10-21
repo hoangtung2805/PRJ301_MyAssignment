@@ -4,24 +4,13 @@
  */
 package model;
 
-import java.util.ArrayList;
-
 /**
  *
  * @author PC
  */
-public class TimeSlot {
+class TimeSlot {
     private int id;
     private String description;
-    private ArrayList<Seesion> seesions = new ArrayList<>();
-
-    public TimeSlot() {
-    }
-
-    public TimeSlot(int id, String description) {
-        this.id = id;
-        this.description = description;
-    }
 
     public int getId() {
         return id;
@@ -38,14 +27,5 @@ public class TimeSlot {
     public void setDescription(String description) {
         this.description = description;
     }
-
-    public ArrayList<Seesion> getSeesions() {
-        return seesions;
-    }
-
-    public void setSeesions(ArrayList<Seesion> seesions) {
-        this.seesions = seesions;
-    }
-    
     
 }

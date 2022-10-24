@@ -69,6 +69,7 @@ public class LoginController extends HttpServlet {
         else
         {
             response.getWriter().println("login failed!");
+            
         }
     }
 

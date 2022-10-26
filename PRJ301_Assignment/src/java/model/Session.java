@@ -93,7 +93,5 @@ public class Session {
     public void setAttanded(boolean attanded) {
         this.attanded = attanded;
     }
-    
-    
-    
+   
 }

@@ -16,7 +16,7 @@ import java.io.PrintWriter;
  *
  * @author PC
  */
-public class HomeController extends HttpServlet {
+public class AttController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,10 +32,18 @@ public class HomeController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try ( PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            request.getRequestDispatcher("view/auth/login.jsp").forward(request, response);        }
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet AttController</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet AttController at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
+        }
     }
 
-    
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.

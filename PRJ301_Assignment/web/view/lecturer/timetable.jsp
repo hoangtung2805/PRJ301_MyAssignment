@@ -12,27 +12,40 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
+        <style>
+        .container {
+            width: 750px;
+            padding-right: 15px;
+            padding-left: 15px;
+            margin-right: auto;
+            margin-left: auto;
+            background-color: red;
+        }
+    </style>
     </head>
-    <body>
-        Lecturer: <input type="text" readonly="readonly" value="${requestScope.lecturer.name}"/>
-        <form action="timetable" method="GET">
+    
+    <body div="container" style="text-align: center;padding-top: 50px">
+        
+        <p>Lecturer: <input type="text" readonly="readonly" value="${requestScope.lecturer.name}"/ style="text-align:center "></p>
+        <p><form action="timetable" method="GET">
             <input type="hidden" name="lid" value="${param.lid}"/>
             From: <input type="date" name="from" value="${requestScope.from}"/>
             To: <input type="date" name="to" value="${requestScope.to}"/>
             <input type="submit" value="View"/> 
-        </form>
-        <table border="1px">
+        </form></p>
+            <table border="1px" style="text-align: center;
+                   width:100% ; height:500px ; background-color: lightcyan" >
             <tr>
-                <td> </td>
+                <td align="center"> </td>
                 <c:forEach items="${requestScope.dates}" var="d">
-                    <td>${d}<br/>${helper.getDayNameofWeek(d)}</td>
+                    <td style="background-color: #007bff">${d}<br/>${helper.getDayNameofWeek(d)}</td>
                     </c:forEach>
             </tr>
             <c:forEach items="${requestScope.slots}" var="slot">
                 <tr>
-                    <td>${slot.description}</td>
+                    <td align="center" >${slot.description}</td>
                     <c:forEach items="${requestScope.dates}" var="d">
-                        <td>
+                        <td align="center" >
                             <c:forEach items="${requestScope.sessions}" var="ses">
                                 <c:if test="${helper.compare(ses.date,d) eq 0 and (ses.timeslot.id eq slot.id)}">
                                     <a href="att?id=${ses.id}">${ses.group.name}-${ses.group.subject.name}</a>
@@ -45,7 +58,7 @@
                                         <img src="../img/female-icon.png" alt=""/>
                                     </c:if>
                                 </c:if>
-                                  
+
                             </c:forEach>
                         </td>
                     </c:forEach>

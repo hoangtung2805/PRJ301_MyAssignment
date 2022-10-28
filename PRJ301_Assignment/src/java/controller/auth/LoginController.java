@@ -64,7 +64,7 @@ public class LoginController extends HttpServlet {
         if(account!=null)
         {
             request.getSession().setAttribute("account", account);
-            response.getWriter().println("login successful!");
+            response.sendRedirect("view/lecturer/timetable.jsp");
         }
         else
         {

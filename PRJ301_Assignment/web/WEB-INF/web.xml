@@ -13,10 +13,6 @@
         <servlet-class>controller.home.HomeController</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>AttController</servlet-name>
-        <servlet-class>controller.home.AttController</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>TimetableController</servlet-name>
         <servlet-class>controller.home.TimetableController</servlet-class>
     </servlet>
@@ -31,10 +27,6 @@
     <servlet-mapping>
         <servlet-name>HomeController</servlet-name>
         <url-pattern>/home</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>AttController</servlet-name>
-        <url-pattern>/takeatt</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>TimetableController</servlet-name>

@@ -8,7 +8,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="vie">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
@@ -24,28 +24,40 @@
             #table-head {
                 background-color: lightblue;
             }
+            table{
+                width:100%;
+                height:auto;
+                border:1px solid lightblue;
+                
+            }
+            td{
+                height: 100px;
+            }
+            #table-head td{
+                height: 50px;
+            }
         </style>    
 
     </head>
     <body>
         <div class="container">
             <h1>Single activity Attendance</h1>
-            Take attendance for class: ${requestScope.ses.group.name}<br/>
+            Take attendance for class: ${requestScope.ses.group.name} at Slot: ${requestScope.ses.timeslot.description} <br/>
             Subject: ${requestScope.ses.group.subject.name} <br/>
             Room: ${requestScope.ses.room.name} <br/>
-            Date: ${requestScope.ses.date} - ${requestScope.ses.timeslot.description}<br/>
+            Date: ${requestScope.ses.date}<br/>
             Attended: <span style="color: red;"> ${requestScope.ses.attandated?"Yes":"No"} </span>
             <form action="takeatt" method="POST">
                 <input type="hidden" name="sesid" value="${param.id}"/>
                 <table border="1px">
                     <thead id ="table-head">
                         <tr>
-                            <td>No.</td>
-                            <td>StudentID</td>
-                            <td>Full Name</td>
-                            <td>Present</td>
-                            <td>Absent</td>
-                            <td>Description</td>
+                            <td align="center">No.</td>
+                            <td align="center">StudentID</td>
+                            <td align="center">Full Name</td>
+                            <td align="center">Present</td>
+                            <td align="center">Absent</td>
+                            <td align="center">Description</td>
                         </tr>
                     </thead>
                     <c:forEach items="${requestScope.ses.attandances}" var="a" varStatus="loop">
@@ -65,13 +77,17 @@
                                            checked="checked"
                                        </c:if>
                                        name="present${a.student.id}" value="absent" /></td>
-                            <td><input type="text" name="description${a.student.id}" value="${a.description}" /></td>
+                            <td><input type="text" style="border:0px ;width: 100% ;height: 100%" name="description${a.student.id}" value="${a.description}" /></td>
                         </tr>   
 
                     </c:forEach>
 
                 </table>
-                <input type="submit" value="Save"/>
+                <input style="height: 40px;
+                       float: right; 
+                       display: inline-block;
+                       width: 100px;
+                       border-radius: 2px;" type="submit" value="Save"/>
             </form>
         </div>
     </body>

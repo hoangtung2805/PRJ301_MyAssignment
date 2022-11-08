@@ -1,10 +1,11 @@
 <%-- 
-    Document   : studentTimetable
-    Created on : Nov 8, 2022, 10:12:56 PM
-    Author     : PC
+    Document   : timetable
+    Created on : Oct 15, 2022, 9:30:31 AM
+    Author     : Ngo Tung Son
 --%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<jsp:useBean id="helper" class="util.DateTimeHelper"/>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -25,8 +26,8 @@
     
     <body div="container" style="text-align: center;padding-top: 50px">
         
-        <p>Student <input type="text" readonly="readonly" value="${requestScope.student.name}"/ style="text-align:center "></p>
-        <p><form action="studenttimetable" method="GET">
+        <p>Lecturer: <input type="text" readonly="readonly" value="${requestScope.student.name}"/ style="text-align:center "></p>
+        <p><form action="timetable" method="GET">
             <input type="hidden" name="stdid" value="${param.stdid}"/>
             From: <input type="date" name="from" value="${requestScope.from}"/>
             To: <input type="date" name="to" value="${requestScope.to}"/>
@@ -45,17 +46,18 @@
                     <td align="center" >${slot.description}</td>
                     <c:forEach items="${requestScope.dates}" var="d">
                         <td align="center" >
-                            <c:forEach items="${requestScope.list}" var="lists">
-                                <c:if test="${helper.compare(lists.date,d) eq 0 and (lists.timeslot.id eq slot.id)}">
-                                    <a>${lists.group.name}-${lists.group.subject.name}</a>
+                            <c:forEach items="${requestScope.list}" var="l">
+                                <c:if test="${helper.compare(l.date,d) eq 0 and (l.timeslot.id eq slot.id)}">
+                                    <a >${l.group.name}-${l.group.subject.name}</a>
                                     <br/>
-                                    ${lists.room.name}
-                                    <c:if test="${lists.present}">
-                                        <img src="../img/male-icon.png" alt=""/>
+                                    ${l.room.name}
+                                    <c:if test="${l.attandances.get(0).present}">
+                                        present
                                     </c:if>
-                                    <c:if test="${!lists.present}">
-                                        <img src="../img/female-icon.png" alt=""/>
+                                    <c:if test="${!l.attandances.get(0).present}">
+                                        absent
                                     </c:if>
+                                    
                                 </c:if>
 
                             </c:forEach>
@@ -64,6 +66,5 @@
                 </tr>
             </c:forEach>
         </table>
-
     </body>
 </html>

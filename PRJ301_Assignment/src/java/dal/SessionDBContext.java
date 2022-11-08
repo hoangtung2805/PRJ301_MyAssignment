@@ -30,25 +30,26 @@ public class SessionDBContext extends DBContext<Session>{
         ArrayList<Session> list = new ArrayList<>();
         try {
             String sql = "Select ses.sesid,ses.[date],ses.[index],ses.attanded,\n" +
-                    "                att.present,\n" +
-                    "                std.stdid,std.stdname,\n" +
-                    "                l.lid,l.lname,\n" +
-                    "                g.gid,g.gname,\n" +
-                    "                sub.subid,sub.subname,\n" +
-                    "                r.rid,r.rname,\n" +
-                    "                t.tid,t.[description] FROM [Session] ses \n" +
-                    "                                  INNER JOIN [Attandance] att on att.sesid = ses.sesid \n" +
-                    "                                  INNER JOIN [Group] g ON g.gid = ses.gid\n" +
-                    "                                  INNER JOIN [Student_Group] sgr ON sgr.gid = g.gid\n" +
-                    "                                  INNER JOIN [Student] std ON std.stdid = sgr.stdid\n" +
-                    "                                  INNER JOIN Lecturer l ON l.lid = ses.lid\n" +
-                    "                                  INNER JOIN [Subject] sub ON sub.subid = g.subid\n" +
-                    "                                  INNER JOIN Room r ON r.rid = ses.rid\n" +
-                    "                                  INNER JOIN TimeSlot t ON t.tid = ses.tid\n" +
-                    "                   WHERE\n" +
-                    "                 std.stdid = ?\n" +
-                    "                 AND ses.[date] >= ?\n" +
-                    "                 AND ses.[date] <= ?";
+"                                    att.present, \n" +
+"                                    std.stdid,std.stdname,\n" +
+"                                    l.lid,l.lname,\n" +
+"                                    g.gid,g.gname,\n" +
+"                                    sub.subid,sub.subname,\n" +
+"                                    r.rid,r.rname,\n" +
+"                                    t.tid,t.[description] FROM [Session] ses \n" +
+"                                                      \n" +
+"                                                      INNER JOIN [Group] g ON g.gid = ses.gid\n" +
+"                                                      INNER JOIN [Student_Group] sgr ON sgr.gid = g.gid\n" +
+"                                                      INNER JOIN [Student] std ON std.stdid = sgr.stdid\n" +
+"						LEFT JOIN [Attandance] att on att.sesid = ses.sesid AND att.stdid = std.stdid\n" +
+"                                                     INNER JOIN Lecturer l ON l.lid = ses.lid\n" +
+"                                                      INNER JOIN [Subject] sub ON sub.subid = g.subid\n" +
+"                                                      INNER JOIN Room r ON r.rid = ses.rid\n" +
+"                                                    INNER JOIN TimeSlot t ON t.tid = ses.tid\n" +
+"                                      WHERE\n" +
+"                                     std.stdid = ?\n" +
+"                                    AND ses.[date] >= ?\n" +
+"                                     AND ses.[date] <= ?";
             PreparedStatement stm = connection.prepareStatement(sql);
             stm.setInt(1, stid);
             stm.setDate(2, from);
@@ -90,9 +91,10 @@ public class SessionDBContext extends DBContext<Session>{
                 t.setDescription(rs.getString("description"));
                 session.setTimeslot(t);
                 
-                std.setId(rs.getInt("stdid"));
-                std.setName(rs.getString("stdname"));
-                att.setStudent(std);
+
+                
+                att.setPresent(rs.getBoolean("present"));
+                session.getAttandances().add(att);
                 
                 list.add(session);
             }

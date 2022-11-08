@@ -84,6 +84,8 @@ public class StudentTimeTableController extends BaseAuthenticationController{
         req.setAttribute("student", student);
         
         req.getRequestDispatcher("view/student/studentTimetable.jsp").forward(req, resp);
+
+
     }
     
     

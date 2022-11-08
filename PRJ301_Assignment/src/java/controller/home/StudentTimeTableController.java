@@ -76,8 +76,8 @@ public class StudentTimeTableController extends BaseAuthenticationController{
         req.setAttribute("slots", slots);
         
         SessionDBContext sesDB = new SessionDBContext();
-        ArrayList<Session> sessions = sesDB.filterStudent(stdid, from, to);
-        req.setAttribute("sessions", sessions);
+        ArrayList<Session> list = sesDB.filterStudent(stdid, from, to);
+        req.setAttribute("list", list);
         
         StudentDBContext stdDB = new StudentDBContext();
         Student student = stdDB.get(stdid);

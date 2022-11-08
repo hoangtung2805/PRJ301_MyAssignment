@@ -30,6 +30,7 @@ public class SessionDBContext extends DBContext<Session>{
         ArrayList<Session> list = new ArrayList<>();
         try {
             String sql = "Select ses.sesid,ses.[date],ses.[index],ses.attanded,\n" +
+                    "                att.present,\n" +
                     "                std.stdid,std.stdname,\n" +
                     "                l.lid,l.lname,\n" +
                     "                g.gid,g.gname,\n" +

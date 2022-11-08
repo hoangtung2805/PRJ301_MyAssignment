@@ -27,7 +27,7 @@
             table{
                 width:100%;
                 height:auto;
-                border:1px solid lightblue;
+                border:1px #212529
                 
             }
             td{
@@ -49,7 +49,7 @@
             Attended: <span style="color: red;"> ${requestScope.ses.attandated?"Yes":"No"} </span>
             <form action="takeatt" method="POST">
                 <input type="hidden" name="sesid" value="${param.id}"/>
-                <table border="1px">
+                <table >
                     <thead id ="table-head">
                         <tr>
                             <td align="center">No.</td>
